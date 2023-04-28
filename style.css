@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box;
+    --main-color: #222;
+    --main-border-style: solid;
+    --main-width: 4px;
+    --main-border: var(--main-width) var(--main-border-style) var(--main-color);
+}
+
+body {
+    font-family: Tahoma, Arial;
+}
+
+.container {
+    margin: 20px auto;
+    width: 1000px;
+}
+
+.row {
+    display: flex;
+}
+
+hr {
+    border: 1px solid #eee;
+}
+
+.game-info {
+    display: flex;
+}
+
+.game-info .game-name {
+    flex: 1;
+}
+
+.game-info .category {
+    flex: 1;
+    text-align: right;
+}
+
+.game-info .category span {
+    text-transform: capitalize;
+    color: #E91E63;
+    font-weight: bold;
+}
+
+.hangman-drow {
+    flex: 1;
+    background-color: #f8f8f8;
+    padding: 20px;
+    height: 324px;
+    left: -60px;
+    position: relative;
+}
+
+.hangman-drow .the-dorw {
+    width: 60px;
+    height: 280px;
+    border-bottom: var(--main-border);
+    position: relative;
+    margin: auto;
+    display: none;
+}
+
+.hangman-drow.wrong-1 .the-dorw {
+    display: block;
+}
+
+.hangman-drow.wrong-2 .the-stand {
+    display: block;
+}
+
+.hangman-drow.wrong-3 .the-hang {
+    display: block;
+}
+
+.hangman-drow.wrong-4 .the-rope {
+    display: block;
+}
+
+.hangman-drow.wrong-5 .the-man .hed {
+    display: block;
+}
+
+.hangman-drow.wrong-6 .the-man .body {
+    display: block;
+}
+
+.hangman-drow.wrong-7 .the-man .hands {
+    display: block;
+}
+
+.hangman-drow.wrong-8 .the-man .legs {
+    display: block;
+}
+
+.hangman-drow .the-stand {
+    position: absolute;
+    width: var(--main-width);
+    background-color: var(--main-color);
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    display: none;
+}
+
+.hangman-drow .the-hang::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    background-color: var(--main-color);
+    height: var(--main-width);
+    left: 30px;
+    top: 15px;
+}
+
+.hangman-drow .the-hang {
+    display: none;
+}
+
+.hangman-drow .the-hang::after {
+    content: "";
+    position: absolute;
+    width: var(--main-width);
+    background-color: var(--main-color);
+    height: 30px;
+    right: -70px;
+    top: 15px;
+}
+
+.hangman-drow .the-rope {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    left: 95px;
+    top: 41px;
+    border: var(--main-width) dashed var(--main-color);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: none;
+}
+
+.hangman-drow .the-man .hed {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    left: 105px;
+    top: 51px;
+    border: var(--main-border);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: none;
+}
+
+.hangman-drow .the-man .body {
+    height: 110px;
+    position: absolute;
+    right: -70px;
+    top: 100px;
+    background-color: var(--main-color);
+    width: var(--main-width);
+    display: none;
+}
+
+.hangman-drow .the-man .hands::after {
+
+    left: 81px;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+}
+
+.hangman-drow .the-man .hands {
+    display: none;
+}
+
+.hangman-drow .the-man .hands::before {
+    left: 125px;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+}
+
+.hangman-drow .the-man .hands::before,
+.hangman-drow .the-man .hands::after {
+    content: '';
+    width: 50px;
+    position: absolute;
+    height: var(--main-width);
+    background-color: var(--main-color);
+    top: 125px;
+}
+
+.hangman-drow .the-man .legs::after {
+    left: 81px;
+    transform: rotate(150deg);
+    -webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    -o-transform: rotate(150deg);
+}
+
+.hangman-drow .the-man .legs {
+    display: none;
+}
+
+.hangman-drow .the-man .legs::before {
+    left: 125px;
+    transform: rotate(-150deg);
+    -webkit-transform: rotate(-150deg);
+    -moz-transform: rotate(-150deg);
+    -ms-transform: rotate(-150deg);
+    -o-transform: rotate(-150deg);
+}
+
+.hangman-drow .the-man .legs::before,
+.hangman-drow .the-man .legs::after {
+    content: '';
+    width: 50px;
+    position: absolute;
+    height: var(--main-width);
+    background-color: var(--main-color);
+    top: 219px;
+}
+
+.letters {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.letters.finish {
+    pointer-events: none;
+
+}
+
+.letters .letter-box {
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    background-color: #009688;
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+    line-height: 55px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.letters .letter-box.clicked {
+    background-color: #222;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.letters-guss {
+    margin: 10px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #f8f8f8;
+    min-height: 104px;
+}
+
+.letters-guss span {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #fdfdfd;
+    border-bottom: 3px solid #222;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+.letters-guss span.with-space {
+    background: none;
+    border: none;
+    position: relative;
+}
+
+.letters-guss span.with-space::before {
+    content: "";
+    width: 20px;
+    height: 4px;
+    background-color: #000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.popup {
+    margin: 10px auto;
+    background-color: red;
+    color: white;
+    height: fit-content;
+    font-size: 25px;
+    width: 500px;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    
+}
