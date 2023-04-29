@@ -44,6 +44,7 @@ const words = {
     "Donald Trump",
     "Bill Gates",
     "Muhammad Ali",
+    "Zeinab"
   ],
   country: [
     "Egypt",
@@ -66,8 +67,7 @@ let randomWord = randomPropValu[randomValueNumber];
 
 document.querySelector(
   ".game-info .category span"
-).innerHTML = `${randomPropName}
-[${randomPropValu}]`;
+).innerHTML = `${randomPropName}`;
 // console.log(randomWord);
 
 let lettersGussContainer = document.querySelector(".letters-guss");
